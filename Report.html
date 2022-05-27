@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>
+        OT Lab 1 - Assembly Patterns - HackMD
+    </title>
+    <link rel="icon" type="image/png" href="https://hackmd.io/favicon.png">
+    <link rel="apple-touch-icon" href="https://hackmd.io/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" integrity="sha256-3iu9jgsy9TpTwXKb7bNQzqWekRX7pPK+2OLj3R922fo=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css" integrity="sha256-QiWfLIsCT02Sdwkogf6YMiQlj4NE84MKkzEMkZnMGdg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.min.css" integrity="sha256-vtR0hSWRc3Tb26iuN2oZHt3KRUomwTufNIf5/4oeCyg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/css/basic/emojify.min.css" integrity="sha256-UOrvMOsSDSrW6szVLe8ZDZezBxh5IoIfgTwdNDgTjiU=" crossorigin="anonymous" />
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i|Source+Code+Pro:300,400,500|Source+Sans+Pro:300,300i,400,400i,600,600i|Source+Serif+Pro&subset=latin-ext);.hljs{display:block;background:#fff;padding:.5em;color:#333;overflow-x:auto}.hljs-comment,.hljs-meta{color:#969896}.hljs-emphasis,.hljs-quote,.hljs-string,.hljs-strong,.hljs-template-variable,.hljs-variable{color:#df5000}.hljs-keyword,.hljs-selector-tag,.hljs-type{color:#a71d5d}.hljs-attribute,.hljs-bullet,.hljs-literal,.hljs-number,.hljs-symbol{color:#0086b3}.hljs-built_in,.hljs-builtin-name{color:#005cc5}.hljs-name,.hljs-section{color:#63a35c}.hljs-tag{color:#333}.hljs-attr,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-id,.hljs-selector-pseudo,.hljs-title{color:#795da3}.hljs-addition{color:#55a532;background-color:#eaffea}.hljs-deletion{color:#bd2c00;background-color:#ffecec}.hljs-link{text-decoration:underline}.markdown-body{font-size:16px;line-height:1.5;word-wrap:break-word}.markdown-body:after,.markdown-body:before{display:table;content:""}.markdown-body:after{clear:both}.markdown-body>:first-child{margin-top:0!important}.markdown-body>:last-child{margin-bottom:0!important}.markdown-body a:not([href]){color:inherit;text-decoration:none}.markdown-body .absent{color:#c00}.markdown-body .anchor{float:left;padding-right:4px;margin-left:-20px;line-height:1}.markdown-body .anchor:focus{outline:none}.markdown-body blockquote,.markdown-body dl,.markdown-body ol,.markdown-body p,.markdown-body pre,.markdown-body table,.markdown-body ul{margin-top:0;margin-bottom:16px}.markdown-body hr{height:.25em;padding:0;margin:24px 0;background-color:#e7e7e7;border:0}.markdown-body blockquote{font-size:16px;padding:0 1em;color:#777;border-left:.25em solid #ddd}.markdown-body blockquote>:first-child{margin-top:0}.markdown-body blockquote>:last-child{margin-bottom:0}.markdown-body kbd,.popover kbd{display:inline-block;padding:3px 5px;font-size:11px;line-height:10px;color:#555;vertical-align:middle;background-color:#fcfcfc;border:1px solid #ccc;border-bottom-color:#bbb;border-radius:3px;box-shadow:inset 0 -1px 0 #bbb}.markdown-body .loweralpha{list-style-type:lower-alpha}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6{margin-top:24px;margin-bottom:16px;font-weight:600;line-height:1.25}.markdown-body h1 .octicon-link,.markdown-body h2 .octicon-link,.markdown-body h3 .octicon-link,.markdown-body h4 .octicon-link,.markdown-body h5 .octicon-link,.markdown-body h6 .octicon-link{color:#000;vertical-align:middle;visibility:hidden}.markdown-body h1:hover .anchor,.markdown-body h2:hover .anchor,.markdown-body h3:hover .anchor,.markdown-body h4:hover .anchor,.markdown-body h5:hover .anchor,.markdown-body h6:hover .anchor{text-decoration:none}.markdown-body h1:hover .anchor .octicon-link,.markdown-body h2:hover .anchor .octicon-link,.markdown-body h3:hover .anchor .octicon-link,.markdown-body h4:hover .anchor .octicon-link,.markdown-body h5:hover .anchor .octicon-link,.markdown-body h6:hover .anchor .octicon-link{visibility:visible}.markdown-body h1 code,.markdown-body h1 tt,.markdown-body h2 code,.markdown-body h2 tt,.markdown-body h3 code,.markdown-body h3 tt,.markdown-body h4 code,.markdown-body h4 tt,.markdown-body h5 code,.markdown-body h5 tt,.markdown-body h6 code,.markdown-body h6 tt{font-size:inherit}.markdown-body h1{font-size:2em}.markdown-body h1,.markdown-body h2{padding-bottom:.3em;border-bottom:1px solid #eee}.markdown-body h2{font-size:1.5em}.markdown-body h3{font-size:1.25em}.markdown-body h4{font-size:1em}.markdown-body h5{font-size:.875em}.markdown-body h6{font-size:.85em;color:#777}.markdown-body ol,.markdown-body ul{padding-left:2em}.markdown-body ol.no-list,.markdown-body ul.no-list{padding:0;list-style-type:none}.markdown-body ol ol,.markdown-body ol ul,.markdown-body ul ol,.markdown-body ul ul{margin-top:0;margin-bottom:0}.markdown-body li>p{margin-top:16px}.markdown-body li+li{padding-top:.25em}.markdown-body dl{padding:0}.markdown-body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}.markdown-body dl dd{padding:0 16px;margin-bottom:16px}.markdown-body table{display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}.markdown-body table th{font-weight:700}.markdown-body table td,.markdown-body table th{padding:6px 13px;border:1px solid #ddd}.markdown-body table tr{background-color:#fff;border-top:1px solid #ccc}.markdown-body table tr:nth-child(2n){background-color:#f8f8f8}.markdown-body img{max-width:100%;box-sizing:content-box;background-color:#fff}.markdown-body img[align=right]{padding-left:20px}.markdown-body img[align=left]{padding-right:20px}.markdown-body .emoji{max-width:none;vertical-align:text-top;background-color:transparent}.markdown-body span.frame{display:block;overflow:hidden}.markdown-body span.frame>span{display:block;float:left;width:auto;padding:7px;margin:13px 0 0;overflow:hidden;border:1px solid #ddd}.markdown-body span.frame span img{display:block;float:left}.markdown-body span.frame span span{display:block;padding:5px 0 0;clear:both;color:#333}.markdown-body span.align-center{display:block;overflow:hidden;clear:both}.markdown-body span.align-center>span{display:block;margin:13px auto 0;overflow:hidden;text-align:center}.markdown-body span.align-center span img{margin:0 auto;text-align:center}.markdown-body span.align-right{display:block;overflow:hidden;clear:both}.markdown-body span.align-right>span{display:block;margin:13px 0 0;overflow:hidden;text-align:right}.markdown-body span.align-right span img{margin:0;text-align:right}.markdown-body span.float-left{display:block;float:left;margin-right:13px;overflow:hidden}.markdown-body span.float-left span{margin:13px 0 0}.markdown-body span.float-right{display:block;float:right;margin-left:13px;overflow:hidden}.markdown-body span.float-right>span{display:block;margin:13px auto 0;overflow:hidden;text-align:right}.markdown-body code,.markdown-body tt{padding:0;padding-top:.2em;padding-bottom:.2em;margin:0;font-size:85%;background-color:rgba(0,0,0,.04);border-radius:3px}.markdown-body code:after,.markdown-body code:before,.markdown-body tt:after,.markdown-body tt:before{letter-spacing:-.2em;content:"\00a0"}.markdown-body code br,.markdown-body tt br{display:none}.markdown-body del code{text-decoration:inherit}.markdown-body pre{word-wrap:normal}.markdown-body pre>code{padding:0;margin:0;font-size:100%;word-break:normal;white-space:pre;background:transparent;border:0}.markdown-body .highlight{margin-bottom:16px}.markdown-body .highlight pre{margin-bottom:0;word-break:normal}.markdown-body .highlight pre,.markdown-body pre{padding:16px;overflow:auto;font-size:85%;line-height:1.45;background-color:#f7f7f7;border-radius:3px}.markdown-body pre code,.markdown-body pre tt{display:inline;max-width:auto;padding:0;margin:0;overflow:visible;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}.markdown-body pre code:after,.markdown-body pre code:before,.markdown-body pre tt:after,.markdown-body pre tt:before{content:normal}.markdown-body .csv-data td,.markdown-body .csv-data th{padding:5px;overflow:hidden;font-size:12px;line-height:1;text-align:left;white-space:nowrap}.markdown-body .csv-data .blob-line-num{padding:10px 8px 9px;text-align:right;background:#fff;border:0}.markdown-body .csv-data tr{border-top:0}.markdown-body .csv-data th{font-weight:700;background:#f8f8f8;border-top:0}.news .alert .markdown-body blockquote{padding:0 0 0 40px;border:0 none}.activity-tab .news .alert .commits,.activity-tab .news .markdown-body blockquote{padding-left:0}.task-list-item{list-style-type:none}.task-list-item label{font-weight:400}.task-list-item.enabled label{cursor:pointer}.task-list-item+.task-list-item{margin-top:3px}.task-list-item-checkbox{float:left;margin:.31em 0 .2em -1.3em!important;vertical-align:middle;cursor:default!important}.markdown-body{padding-top:40px;padding-bottom:40px;max-width:758px;overflow:visible!important;position:relative}.markdown-body .emoji{vertical-align:top}.markdown-body pre{border:inherit!important}.markdown-body code{color:inherit!important}.markdown-body pre code .wrapper{display:-moz-inline-flex;display:-ms-inline-flex;display:-o-inline-flex;display:inline-flex}.markdown-body pre code .gutter{float:left;overflow:hidden;-webkit-user-select:none;user-select:none}.markdown-body pre code .gutter.linenumber{text-align:right;position:relative;display:inline-block;cursor:default;z-index:4;padding:0 8px 0 0;min-width:20px;box-sizing:content-box;color:#afafaf!important;border-right:3px solid #6ce26c!important}.markdown-body pre code .gutter.linenumber>span:before{content:attr(data-linenumber)}.markdown-body pre code .code{float:left;margin:0 0 0 16px}.markdown-body .gist .line-numbers{border-left:none;border-top:none;border-bottom:none}.markdown-body .gist .line-data{border:none}.markdown-body .gist table{border-spacing:0;border-collapse:inherit!important}.markdown-body code[data-gist-id]{background:none;padding:0}.markdown-body code[data-gist-id]:after,.markdown-body code[data-gist-id]:before{content:""}.markdown-body code[data-gist-id] .blob-num{border:unset}.markdown-body code[data-gist-id] table{overflow:unset;margin-bottom:unset}.markdown-body code[data-gist-id] table tr{background:unset}.markdown-body[dir=rtl] pre{direction:ltr}.markdown-body[dir=rtl] code{direction:ltr;unicode-bidi:embed}.markdown-body .alert>p:last-child{margin-bottom:0}.markdown-body pre.abc,.markdown-body pre.flow-chart,.markdown-body pre.graphviz,.markdown-body pre.mermaid,.markdown-body pre.sequence-diagram,.markdown-body pre.vega{text-align:center;background-color:inherit;border-radius:0;white-space:inherit;overflow:visible}.markdown-body pre.abc>code,.markdown-body pre.flow-chart>code,.markdown-body pre.graphviz>code,.markdown-body pre.mermaid>code,.markdown-body pre.sequence-diagram>code,.markdown-body pre.vega>code{text-align:left}.markdown-body pre.abc>svg,.markdown-body pre.flow-chart>svg,.markdown-body pre.graphviz>svg,.markdown-body pre.mermaid>svg,.markdown-body pre.sequence-diagram>svg,.markdown-body pre.vega>svg{max-width:100%;height:100%}.markdown-body pre>code.wrap{white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word}.markdown-body .alert>p:last-child,.markdown-body .alert>ul:last-child{margin-bottom:0}.markdown-body summary{display:list-item}.markdown-body summary:focus{outline:none}.markdown-body details summary{cursor:pointer}.markdown-body details:not([open])>:not(summary){display:none}.markdown-body figure{margin:1em 40px}.markdown-body .mark,.markdown-body mark{background-color:#fff1a7}.vimeo,.youtube{cursor:pointer;display:table;text-align:center;background-position:50%;background-repeat:no-repeat;background-size:contain;background-color:#000;overflow:hidden}.vimeo,.youtube{position:relative;width:100%}.youtube{padding-bottom:56.25%}.vimeo img{width:100%;object-fit:contain;z-index:0}.youtube img{object-fit:cover;z-index:0}.vimeo iframe,.youtube iframe,.youtube img{width:100%;height:100%;position:absolute;top:0;left:0}.vimeo iframe,.youtube iframe{vertical-align:middle;z-index:1}.vimeo .icon,.youtube .icon{position:absolute;height:auto;width:auto;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;opacity:.3;transition:opacity .2s;z-index:0}.vimeo:hover .icon,.youtube:hover .icon{opacity:.6;transition:opacity .2s}.slideshare .inner,.speakerdeck .inner{position:relative;width:100%}.slideshare .inner iframe,.speakerdeck .inner iframe{position:absolute;top:0;bottom:0;left:0;right:0;width:100%;height:100%}.figma{display:table;position:relative;width:100%;padding-bottom:56.25%}.figma iframe{position:absolute;top:0;bottom:0;left:0;right:0;width:100%;height:100%;border:1px solid #eee}.markmap-container{height:300px}.markmap-container>svg{width:100%;height:100%}.MJX_Assistive_MathML{display:none}#MathJax_Message{z-index:1000!important}.ui-infobar{position:relative;z-index:2;max-width:760px;margin:25px auto -25px;color:#777}.toc .invisable-node{list-style-type:none}.ui-toc{position:fixed;bottom:20px;z-index:998}.ui-toc.both-mode{margin-left:8px}.ui-toc.both-mode .ui-toc-label{height:40px;padding:10px 4px;border-top-left-radius:0;border-bottom-left-radius:0}.ui-toc-label{background-color:#e6e6e6;border:none;color:#868686;transition:opacity .2s}.ui-toc .open .ui-toc-label{opacity:1;color:#fff;transition:opacity .2s}.ui-toc-label:focus{opacity:.3;background-color:#ccc;color:#000}.ui-toc-label:hover{opacity:1;background-color:#ccc;transition:opacity .2s}.ui-toc-dropdown{margin-top:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;max-width:45vw;width:25vw;max-height:70vh;overflow:auto;text-align:inherit}.ui-toc-dropdown>.toc{max-height:calc(70vh - 100px);overflow:auto}.ui-toc-dropdown[dir=rtl] .nav{padding-right:0;letter-spacing:.0029em}.ui-toc-dropdown a{overflow:hidden;text-overflow:ellipsis;white-space:pre}.ui-toc-dropdown .nav>li>a{display:block;padding:4px 20px;font-size:13px;font-weight:500;color:#767676}.ui-toc-dropdown .nav>li:first-child:last-child>ul,.ui-toc-dropdown .toc.expand ul{display:block}.ui-toc-dropdown .nav>li>a:focus,.ui-toc-dropdown .nav>li>a:hover{padding-left:19px;color:#000;text-decoration:none;background-color:transparent;border-left:1px solid #000}.ui-toc-dropdown[dir=rtl] .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav>li>a:hover{padding-right:19px;border-left:none;border-right:1px solid #000}.ui-toc-dropdown .nav>.active:focus>a,.ui-toc-dropdown .nav>.active:hover>a,.ui-toc-dropdown .nav>.active>a{padding-left:18px;font-weight:700;color:#000;background-color:transparent;border-left:2px solid #000}.ui-toc-dropdown[dir=rtl] .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav>.active>a{padding-right:18px;border-left:none;border-right:2px solid #000}.ui-toc-dropdown .nav .nav{display:none;padding-bottom:10px}.ui-toc-dropdown .nav>.active>ul{display:block}.ui-toc-dropdown .nav .nav>li>a{padding-top:1px;padding-bottom:1px;padding-left:30px;font-size:12px;font-weight:400}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a{padding-right:30px}.ui-toc-dropdown .nav .nav>li>ul>li>a{padding-top:1px;padding-bottom:1px;padding-left:40px;font-size:12px;font-weight:400}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a{padding-right:40px}.ui-toc-dropdown .nav .nav>li>a:focus,.ui-toc-dropdown .nav .nav>li>a:hover{padding-left:29px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:hover{padding-right:29px}.ui-toc-dropdown .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown .nav .nav>li>ul>li>a:hover{padding-left:39px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:hover{padding-right:39px}.ui-toc-dropdown .nav .nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>a{padding-left:28px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>a{padding-right:28px}.ui-toc-dropdown .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active>a{padding-left:38px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active>a{padding-right:38px}.markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif}html[lang^=ja] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html[lang=zh-tw] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}html .markdown-body[lang^=ja]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html .markdown-body[lang=zh-tw]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html .markdown-body[lang=zh-cn]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}html[lang^=ja] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,ＭＳ\ Ｐゴシック,sans-serif}html[lang=zh-tw] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,微軟正黑UI,sans-serif}html[lang=zh-cn] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,微软雅黑UI,sans-serif}html .ui-toc-dropdown[lang^=ja]{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,ＭＳ\ Ｐゴシック,sans-serif}html .ui-toc-dropdown[lang=zh-tw]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,微軟正黑UI,sans-serif}html .ui-toc-dropdown[lang=zh-cn]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,微软雅黑UI,sans-serif}.ui-affix-toc{position:fixed;top:0;max-width:15vw;max-height:70vh;overflow:auto}.back-to-top,.expand-toggle,.go-to-bottom{display:block;padding:4px 10px;margin-top:10px;margin-left:10px;font-size:12px;font-weight:500;color:#999}.back-to-top:focus,.back-to-top:hover,.expand-toggle:focus,.expand-toggle:hover,.go-to-bottom:focus,.go-to-bottom:hover{color:#563d7c;text-decoration:none}.back-to-top,.go-to-bottom{margin-top:0}.ui-user-icon{width:20px;height:20px;display:block;border-radius:50%;margin-top:2px;margin-bottom:2px;margin-right:5px;background-position:50%;background-repeat:no-repeat;background-size:cover}.ui-user-icon.small{width:18px;height:18px;display:inline-block;vertical-align:middle;margin:0 0 .2em}.ui-infobar>small>span{line-height:22px}.ui-infobar>small .dropdown{display:inline-block}.ui-infobar>small .dropdown a:focus,.ui-infobar>small .dropdown a:hover{text-decoration:none}.ui-more-info{color:#888;cursor:pointer;vertical-align:middle}.ui-more-info .fa{font-size:16px}.ui-connectedGithub,.ui-published-note{color:#888}.ui-connectedGithub{line-height:23px;white-space:nowrap}.ui-connectedGithub a.file-path{color:#888;text-decoration:none;padding-left:22px}.ui-connectedGithub a.file-path:active,.ui-connectedGithub a.file-path:hover{color:#888;text-decoration:underline}.ui-connectedGithub .fa{font-size:20px}.ui-published-note .fa{font-size:20px;vertical-align:top}.unselectable{-webkit-user-select:none;-o-user-select:none;user-select:none}.selectable{-webkit-user-select:text;-o-user-select:text;user-select:text}@media print{blockquote,div,img,pre,table{page-break-inside:avoid!important}a[href]:after{font-size:12px!important}}.markdown-body.slides{position:relative;z-index:1;color:#222}.markdown-body.slides:before{content:"";display:block;position:absolute;top:0;left:0;right:0;bottom:0;z-index:-1;background-color:currentColor;box-shadow:0 0 0 50vw}.markdown-body.slides section[data-markdown]{position:relative;margin-bottom:1.5em;background-color:#fff;text-align:center}.markdown-body.slides section[data-markdown] code{text-align:left}.markdown-body.slides section[data-markdown]:before{content:"";display:block;padding-bottom:56.23%}.markdown-body.slides section[data-markdown]>div:first-child{position:absolute;top:50%;left:1em;right:1em;transform:translateY(-50%);max-height:100%;overflow:hidden}.markdown-body.slides section[data-markdown]>ul{display:inline-block}.markdown-body.slides>section>section+section:after{content:"";position:absolute;top:-1.5em;right:1em;height:1.5em;border:3px solid #777}.site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,sans-serif}html[lang^=ja] .site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html[lang=zh-tw] .site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] .site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}body{font-smoothing:subpixel-antialiased!important;-webkit-font-smoothing:subpixel-antialiased!important;-moz-osx-font-smoothing:auto!important;text-shadow:0 0 1em transparent,1px 1px 1.2px rgba(0,0,0,.004);-webkit-overflow-scrolling:touch;letter-spacing:.025em;font-family:Source Sans Pro,Helvetica,Arial,sans-serif}html[lang^=ja] body{font-family:Source Sans Pro,Helvetica,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html[lang=zh-tw] body{font-family:Source Sans Pro,Helvetica,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] body{font-family:Source Sans Pro,Helvetica,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}abbr[data-original-title],abbr[title]{cursor:help}body.modal-open{overflow-y:auto;padding-right:0!important}
+    </style>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha256-g6iAfvZp+nDQ2TdTR/VVKJf3bGro4ub5fvWSWVRi2NE=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js" integrity="sha256-8E4Is26QH0bD52WoQpcB+R/tcWQtpzlCojrybUd7Mxo=" crossorigin="anonymous"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div id="doc" class="markdown-body container-fluid comment-enabled" data-hard-breaks="true"><center>
+<h1 id="OT-Lab-1---Assembly-Patterns" data-id="OT-Lab-1---Assembly-Patterns"><a class="anchor hidden-xs" href="#OT-Lab-1---Assembly-Patterns" title="OT-Lab-1---Assembly-Patterns"><span class="octicon octicon-link"></span></a><span>OT Lab 1 - Assembly Patterns</span></h1>
+<p><strong><span>Name: Vladimir Shelkovnikov</span></strong><br>
+<span>—</span></p>
+</center><h1 id="Part-1---Understanding-Assembly" data-id="Part-1---Understanding-Assembly"><a class="anchor hidden-xs" href="#Part-1---Understanding-Assembly" title="Part-1---Understanding-Assembly"><span class="octicon octicon-link"></span></a><span>Part 1 - Understanding Assembly</span></h1><h2 id="Task-1---Theory" data-id="Task-1---Theory"><a class="anchor hidden-xs" href="#Task-1---Theory" title="Task-1---Theory"><span class="octicon octicon-link"></span></a><span>Task 1 - Theory</span></h2><hr><blockquote>
+<ol>
+<li><span>What is the difference between mov and lea commands?</span></li>
+</ol>
+<blockquote>
+<p><span>The main difference between mov and lea is load. The mov loads value at the address while lea loads pointer.</span></p>
+</blockquote>
+</blockquote><hr><blockquote>
+<ol start="2">
+<li><span>What is ASLR, and why do we need it?</span></li>
+</ol>
+<blockquote>
+<p><span>Address Space Layout Randomization (ASLR) is a security technique that performs randomly positioning for the addresses of an executable and its process.</span></p>
+</blockquote>
+</blockquote><hr><blockquote>
+<ol start="3">
+<li><span>How can the debugger insert a breakpoint in the debugged binary/application?</span></li>
+</ol>
+<blockquote>
+<p><span>The debugger uses software breakpoints by patching the executed code with an instruction that triggers a debug event. This is accomplished by injecting a breakpoint instruction or when that is not supported by inserting an instruction that causes a fault that halts the core.</span></p>
+</blockquote>
+</blockquote><hr><h2 id="Task-2---Disassembly" data-id="Task-2---Disassembly"><a class="anchor hidden-xs" href="#Task-2---Disassembly" title="Task-2---Disassembly"><span class="octicon octicon-link"></span></a><span>Task 2 - Disassembly</span></h2><p><span>Preparation</span></p><div class="alert alert-success">
+<ol>
+<li><span>Choose any debugger/disassembler that supports the given task architecture.</span></li>
+<li><span>You have to check and analyze what does a binary do before running it. You have no idea what file we are working with, even if it is initially considered a legitimate application.</span></li>
+<li><span>Prepare a Linux VM for this lab, as you might need to disable ASLR.</span></li>
+<li><span>Load the binaries ( sample 32 and sample 64 from part1.zip) into a disassembler/debugger.</span></li>
+<li><span>Does the function prologue and epilogue differ in 32bit and 64bit? What about calling conventions?</span></li>
+<li><span>Do function calls differ in 32bit and 64bit? What about argument passing?</span></li>
+<li><span>What does the command ldd do? “ldd BINARY-NAME”.</span></li>
+</ol>
+</div><p><span>I disabled ASLR on VM as shown in Figure 1.</span></p><center>
+<p><img src="https://i.imgur.com/Bz6yEtS.png" alt="" loading="lazy"><br>
+<span>Figure 1 - Disabling ASLR</span></p>
+</center><p><span>Then  I copied files to the VM. Now let’s analyze them. I started with sandbox analysis but it does not show anything at all. So let’s check it manually.</span><br>
+<span>Both files are not stripped ELF files with debug info (Figure 2).</span></p><center>
+<p><img src="https://i.imgur.com/88469zy.png" alt="" loading="lazy"><br>
+<span>Figure 2 - File sample*</span></p>
+</center><p><span>Both files were compiled from the sample.c file but they differ in bit version (32 and 64). Code contains two functions main (Figure 3) and sample_function (Figure 4).</span></p><center>
+<p><img src="https://i.imgur.com/qF5LCE9.png" alt="" loading="lazy"><br>
+<span>Figure 3 - main function (64)</span></p>
+</center><p><span>The first three lines of the main function refer to rbp and rsp. They are special-purpose registers.</span></p><div class="alert alert-info">
+<p><span>rbp - base pointer, which points to the base of the current stack frame.</span><br>
+<span>rsp - stack pointer, which points to the top of the current stack frame.</span></p>
+</div><p><span>The third line creates a space (10 bit) to store values of local variables.</span><br>
+<span>The next four line works with variables. Then it call the printf function (address 0x550) and then the sample_function (0x68a).</span></p><div class="alert alert-info">
+<p><span>RDI - pass the string (1st argument).</span><br>
+<span>RSI - pass the 2nd argument to a subroutine.</span><br>
+<span>EAX - stores the number of vector registers used to store arguments of the called function.</span></p>
+</div><p><span>This function can be represented as shown below:</span></p><pre><code>int main()
+{
+	int x; 
+	
+	printf("In main(), x is stored at 0x%08x.\n", &amp;x); 
+	sample_function();
+}
+</code></pre><p><span>Now let’s have a look at </span><strong><span>sample_function</span></strong><span> (Figure 4).</span></p><center>
+<p><img src="https://i.imgur.com/zAwUkdo.png" alt="" loading="lazy"><br>
+<span>Figure 4 - sample_function (64)</span></p>
+</center><p><span>Here we have the same commands. It can be represented as shown below:</span></p><pre><code>void sample_function()
+{
+	int i;
+	char buffer[12];
+
+	printf("In sample_function(), i is stored at %p.\n", &amp;i); 
+	printf("In sample_function(), buffer is stored at %p.\n", &amp;buffer); 
+
+	printf("Value of i before calling gets(): 0x%11x\n", i); 
+	gets(buffer); 
+	printf("Value of i after calling gets(): 0x%11x\n", i); 
+	return;
+}
+</code></pre><p><span>Now let’s have a look at the 32-bit version of the program (Figures 5 and 6).</span></p><center>
+<p><img src="https://i.imgur.com/Lf1wd80.png" alt="" loading="lazy"><br>
+<span>Figure 5 - main function (32)</span></p>
+<p><img src="https://i.imgur.com/lrPUd3L.png" alt="" loading="lazy"><br>
+<span>Figure 6 - sample_function (32)</span></p>
+</center><p><span>Here the program uses a stack instead of registers. So we can see a more complex structure with additional commands to work with it.</span></p><div class="alert alert-success">
+<ol start="5">
+<li><span>Does the function prologue and epilogue differ in 32bit and 64bit? What about calling conventions?</span></li>
+<li><span>Do function calls differ in 32bit and 64bit? What about argument passing?</span></li>
+</ol>
+</div><p><span>We can see the difference at the beginning and the end of functions.</span></p><div class="alert alert-info">
+<p><span>Prologue - Save registers and return address; transfer parameters.</span><br>
+<span>Epilogue - Restore registers; transfer returned value; return.</span></p>
+</div><p><strong><span>main x64</span></strong></p><pre><code class="l hljs"><span class="hljs-keyword">push</span> <span class="hljs-built_in">rbp</span>
+<span class="hljs-keyword">mov</span> <span class="hljs-built_in">rbp</span>, <span class="hljs-built_in">rsp</span>
+<span class="hljs-keyword">sub</span> <span class="hljs-built_in">rsp</span>, <span class="hljs-number">10h</span>
+</code></pre><pre><code>leave
+rtn
+</code></pre><p><strong><span>main x86</span></strong></p><pre><code class="l hljs"><span class="hljs-keyword">lea</span> <span class="hljs-built_in">ecx</span>, [<span class="hljs-built_in">esp</span>+<span class="hljs-number">4</span>]<span class="hljs-comment">; Save original ESP to ECX (ESP+4)</span>
+<span class="hljs-keyword">and</span> <span class="hljs-built_in">esp</span>, <span class="hljs-number">0FFFFFFFF0h</span><span class="hljs-comment">; Align stack on 16 bytes</span>
+<span class="hljs-keyword">push</span> <span class="hljs-built_in">dword</span> <span class="hljs-built_in">ptr</span> [<span class="hljs-built_in">ecx</span>-<span class="hljs-number">4</span>]<span class="hljs-comment">; Push main return address</span>
+<span class="hljs-keyword">push</span> <span class="hljs-built_in">ebp</span>
+<span class="hljs-keyword">mov</span> <span class="hljs-built_in">ebp</span>, <span class="hljs-built_in">esp</span><span class="hljs-comment">; two lines establishing a new stack frame</span>
+<span class="hljs-keyword">push</span> <span class="hljs-built_in">ebx</span><span class="hljs-comment">; Save ebx (Original base pointer)</span>
+<span class="hljs-keyword">push</span> <span class="hljs-built_in">ecx</span><span class="hljs-comment">; Save ECX (Original stack pointer)</span>
+<span class="hljs-keyword">sub</span> <span class="hljs-built_in">esp</span>, <span class="hljs-number">10h</span><span class="hljs-comment">; Reserve 10 bytes</span>
+<span class="hljs-keyword">call</span> __x86_get_pc_thunk_ax<span class="hljs-comment">; loads its return address</span>
+</code></pre><pre><code class="l hljs"><span class="hljs-keyword">lea</span> <span class="hljs-built_in">esp</span>, [<span class="hljs-built_in">ebp</span>-<span class="hljs-number">8</span>]<span class="hljs-comment">; Readjusting the Base Pointer</span>
+<span class="hljs-keyword">pop</span> <span class="hljs-built_in">ecx</span> <span class="hljs-comment">;restore non-volatile registers</span>
+<span class="hljs-keyword">pop</span> <span class="hljs-built_in">ebx</span>
+<span class="hljs-keyword">pop</span> <span class="hljs-built_in">ebp</span>
+<span class="hljs-keyword">lea</span> <span class="hljs-built_in">esp</span>, [<span class="hljs-built_in">ecx</span>-<span class="hljs-number">4</span>]<span class="hljs-comment">; Readjusting the Stack Pointer</span>
+<span class="hljs-keyword">retn</span>
+</code></pre><div class="alert alert-info">
+<p><span>Calling conventions describe the interface of called code:</span></p>
+<ul>
+<li><span>The order in which parameters are allocated</span></li>
+<li><span>How parameters are passed (pushed on the stack, placed in registers, or a mix of both)</span></li>
+<li><span>Which registers the called function must preserve for the caller (also known as callee-saved registers or non-volatile registers)</span></li>
+<li><span>How the task of preparing the stack for, and restoring after, a function call is divided between the caller and the callee</span></li>
+</ul>
+</div><p><strong><span>32 bit</span></strong><br>
+<span>For the 32-bit version, the caller(main) places all parameters from right to left to the callee(sample) on the stack. Stack cleanup is also performed by the caller.</span><br>
+<span>When it calling the function it allocates the space on the stack with the </span><strong><span>sub</span></strong><span> command by moving the stack pointer. Then, the parameters are pushed one by one. After this, the call instruction will set the next instruction address on the stack as well and will pass the control to function.</span><br>
+<span>Integer values and memory addresses are returned in the </span><strong><span>EAX</span></strong><span>  register, floating-point values in the </span><strong><span>ST0</span></strong><span> register.</span><br>
+<span>Registers </span><strong><span>EAX, ECX, and EDX</span></strong><span> are caller-saved, and the rest are callee-saved.</span><br>
+<span>The floating point registers </span><strong><span>ST0 to ST7</span></strong><span> must be empty (popped or freed) when calling a new function, and </span><strong><span>ST1 to ST7</span></strong><span> must be empty on exiting a function. </span><strong><span>ST0</span></strong><span> must also be empty when not used for returning a value.</span></p><p><span>Table 1 - Registers and registers usage</span></p><table>
+<thead>
+<tr>
+<th><span>Name</span></th>
+<th><span>Brief description</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>eax</span></td>
+<td><span>return value</span></td>
+</tr>
+<tr>
+<td><span>ebx</span></td>
+<td><span>preserve</span></td>
+</tr>
+<tr>
+<td><span>ecx</span></td>
+<td><span>scratch</span></td>
+</tr>
+<tr>
+<td><span>edx</span></td>
+<td><span>scratch</span></td>
+</tr>
+<tr>
+<td><span>esi</span></td>
+<td><span>preserve</span></td>
+</tr>
+<tr>
+<td><span>edi</span></td>
+<td><span>preserve</span></td>
+</tr>
+<tr>
+<td><span>ebp</span></td>
+<td><span>preserve</span></td>
+</tr>
+<tr>
+<td><span>esp</span></td>
+<td><span>stack pointer</span></td>
+</tr>
+<tr>
+<td><span>st0</span></td>
+<td><span>ﬂoating point return value</span></td>
+</tr>
+<tr>
+<td><span>st1-st7</span></td>
+<td><span>scratch</span></td>
+</tr>
+</tbody>
+</table><div class="alert alert-info">
+<p><strong><span>Scratch</span></strong><span> registers any function is allowed to overwrite and use for anything you want without asking anybody.</span><br>
+<strong><span>Preserved</span></strong><span> registers have to be put back (save the register) if you use them.</span><br>
+<strong><span>All information for Linux, it’s different for Windows OS!</span></strong></p>
+</div><p><strong><span>64 bit</span></strong></p><p><span>x64 extended registers to 64 bits (prefix “r” instead of “e”) and added another 8(r8-r16). This allowed passing more arguments in registers, thus avoiding the rendering of the stack. According to the ABI, the first 6 integer or pointer arguments to a function are passed in registers. The first is placed in </span><strong><span>rdi</span></strong><span>, the second in </span><strong><span>rsi</span></strong><span>, the third in </span><strong><span>rdx</span></strong><span>, and then </span><strong><span>rcx, r8 and r9</span></strong><span>. Only the 7th argument and onwards are passed on the stack.</span></p><p><span>Table 2 - Registers and registers usage</span></p><table>
+<thead>
+<tr>
+<th><span>Name</span></th>
+<th><span>Brief description</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>rax</span></td>
+<td><span>return value</span></td>
+</tr>
+<tr>
+<td><span>rbx</span></td>
+<td><span>preserved</span></td>
+</tr>
+<tr>
+<td><span>rcx</span></td>
+<td><span>scratch,4th parameter</span></td>
+</tr>
+<tr>
+<td><span>rdx</span></td>
+<td><span>scratch,3rd parameter</span></td>
+</tr>
+<tr>
+<td><span>rsi</span></td>
+<td><span>scratch,2nd parameter</span></td>
+</tr>
+<tr>
+<td><span>rdi</span></td>
+<td><span>scratch,1st parameter</span></td>
+</tr>
+<tr>
+<td><span>rbp</span></td>
+<td><span>preserved</span></td>
+</tr>
+<tr>
+<td><span>rsp</span></td>
+<td><span>stack pointer</span></td>
+</tr>
+<tr>
+<td><span>rt8-r11</span></td>
+<td><span>scratch,5th(r8) and 6th(r9) parameters</span></td>
+</tr>
+<tr>
+<td><span>r12-r15</span></td>
+<td><span>preserved</span></td>
+</tr>
+<tr>
+<td><span>XMM0</span></td>
+<td><span>ﬂoating point return value</span></td>
+</tr>
+<tr>
+<td><span>XMM0-XMM7</span></td>
+<td><span>floating parameters</span></td>
+</tr>
+</tbody>
+</table><p><span>It also has the </span><strong><span>red zone</span></strong><span> - the 128-byte area beyond the location pointed to by </span><strong><span>rsp</span></strong><span>, that is used for optimization (decrementing </span><strong><span>rsp</span></strong><span> and restoring it are two instructions that can be saved when using the red zone for data).</span><br>
+<span>If the function takes a variable number of arguments then the </span><strong><span>%eax</span></strong><span> register must be set to the number of floating-point arguments.</span><br>
+<span>The callee may use any registers but it must restore preserved registers if it changed them.</span></p><div class="alert alert-success">
+<p><span>What does the command ldd do? “ldd BINARY-NAME”.</span></p>
+</div><p><strong><span>ldd</span></strong><span> prints the shared objects (shared libraries) required by each program or shared object specified on the command line.</span><br>
+<span>The result for the sample64 binary is shown in Figure 7.</span></p><center>
+<p><img src="https://i.imgur.com/JIssU2F.png" alt="" loading="lazy"><br>
+<span>Figure 7 - ldd command</span></p>
+</center><p><strong><span>linux-vdso.so.1</span></strong><span> is a virtual library that is automatically mapped in the address space of a process by the kernel.</span></p><hr><h1 id="Part-2---Reverse-engineering" data-id="Part-2---Reverse-engineering"><a class="anchor hidden-xs" href="#Part-2---Reverse-engineering" title="Part-2---Reverse-engineering"><span class="octicon octicon-link"></span></a><span>Part 2 - Reverse engineering</span></h1><h2 id="Task-1---Theory1" data-id="Task-1---Theory"><a class="anchor hidden-xs" href="#Task-1---Theory1" title="Task-1---Theory1"><span class="octicon octicon-link"></span></a><span>Task 1 - Theory</span></h2><hr><blockquote>
+<ol>
+<li><span>What kind of file did you receive (which arch? 32bit or 64bit?)?</span></li>
+</ol>
+<blockquote>
+<p><span>The second part contains 9 files:</span><br>
+<strong><span>bin1, bin2, bin3, bin4</span></strong><span> - ELF 64-bit, not stripped;</span><br>
+<strong><span>bin5, bin6</span></strong><span> - ELF 64-bit, stripped;</span><br>
+<strong><span>msvcp140d.dll</span></strong><span> - PE32 executable (dll), Windows;</span><br>
+<strong><span>task1.exe, task2.exe</span></strong><span> - PE32 executable, Windows;</span></p>
+</blockquote>
+</blockquote><hr><blockquote>
+<ol start="2">
+<li><span>What do stripped binaries mean?</span></li>
+</ol>
+<blockquote>
+<p><span>It means that debugging information as well as unnecessary (for executing) data were removed from the executable.</span></p>
+</blockquote>
+</blockquote><hr><blockquote>
+<ol start="3">
+<li><span>What are GOT and PLT? Describe the practical example.</span></li>
+</ol>
+<blockquote>
+<p><span>The Global Offset Table (or GOT) is a section inside of programs that hold addresses of functions that are dynamically linked.</span></p>
+</blockquote>
+<blockquote>
+<p><span>The PLT is the procedure linkage table, one of the structures which look up the addresses in the .got.plt section, and either jump to the right address, or trigger the code in the linker to look up the address.</span></p>
+</blockquote>
+<blockquote>
+<p><span>.got.plt - contains the target addresses or an address back in the .plt to trigger the lookup.</span></p>
+</blockquote>
+<blockquote>
+<p><span>The PLT and GOT work together to perform the linking.</span><br>
+<span>Let’s look at them using bin1. table one shows the part of the Section headers for bin1</span></p>
+</blockquote>
+</blockquote><p><span>Table 1 - Section Headers of bin1.</span></p><table>
+<thead>
+<tr>
+<th><span>[Nr]</span></th>
+<th><span>Name</span></th>
+<th><span>Type</span></th>
+<th><span>Address</span></th>
+<th><span>Offset</span></th>
+<th><span>Size</span></th>
+<th><span>EntSize</span></th>
+<th><span>Flags</span></th>
+<th><span>Link</span></th>
+<th><span>Info</span></th>
+<th><span>Align</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>[12]</span></td>
+<td><span>.plt</span></td>
+<td><span>PROGBITS</span></td>
+<td><span>00000000000005d0</span></td>
+<td><span>000005d0</span></td>
+<td><span>0000000000000050</span></td>
+<td><span>0000000000000010</span></td>
+<td><span>AX</span></td>
+<td><span>0</span></td>
+<td><span>0</span></td>
+<td><span>16</span></td>
+</tr>
+<tr>
+<td><span>[13]</span></td>
+<td><span>.plt.got</span></td>
+<td><span>PROGBITS</span></td>
+<td><span>0000000000000620</span></td>
+<td><span>00000620</span></td>
+<td><span>0000000000000008</span></td>
+<td><span>0000000000000008</span></td>
+<td><span>AX</span></td>
+<td><span>0</span></td>
+<td><span>0</span></td>
+<td><span>8</span></td>
+</tr>
+<tr>
+<td><span>[22]</span></td>
+<td><span>.got</span></td>
+<td><span>PROGBITS</span></td>
+<td><span>0000000000200fa0</span></td>
+<td><span>00000fa0</span></td>
+<td><span>0000000000000060</span></td>
+<td><span>0000000000000008</span></td>
+<td><span>WA</span></td>
+<td><span>0</span></td>
+<td><span>0</span></td>
+<td><span>8</span></td>
+</tr>
+</tbody>
+</table><p><span>So when we calling time function (callq 0x610 </span><a href="mailto:time@plt" target="_blank" rel="noopener"><span>time@plt</span></a><span>) we used local address in the </span><strong><span>.plt</span></strong><span> section, hence the special symbol name of </span><strong><span>time@plt</span></strong><span>. Let put breakpoint at the call (Figure 8).</span></p><center>
+<p><img src="https://i.imgur.com/UrqsWEq.png" alt="" loading="lazy"><br>
+<span>Figure 8 - calls</span></p>
+</center><p><strong><span>time@plt</span></strong><span> performs jmp to the </span><strong><span>time@got.plt</span></strong><span> section, which contains the pointer to the 0xf7fcd9e0. So when I run si it brings me to the 0xf7fcd9e0 address.</span></p><hr><blockquote>
+<ol start="5">
+<li><span>What are binary symbols in reverse engineering? How does it help?</span></li>
+</ol>
+<blockquote>
+<p><span>Binary symbols allow identifying the function or variable name with their address in memory. Figure 9 shows the part of the symbol table for bin1.</span></p>
+</blockquote>
+</blockquote><center>
+<p><img src="https://i.imgur.com/n7uhZQj.png" alt="" loading="lazy"><br>
+<span>Figure 9 - Part of the symbol table</span></p>
+</center><p><span>So if the binary wasn’t stripped we don’t need to perform any extra action for identification.</span></p><hr><h2 id="Task-2---Reverse-amp-Cracking" data-id="Task-2---Reverse-amp-Cracking"><a class="anchor hidden-xs" href="#Task-2---Reverse-amp-Cracking" title="Task-2---Reverse-amp-Cracking"><span class="octicon octicon-link"></span></a><span>Task 2 - Reverse &amp; Cracking</span></h2><div class="alert alert-success">
+<p><span>Inside the ZIP file (part2.zip), you will have multiple binaries ( bin 1-6 ), try to reverse them by recreating them using any programming language of your choice (C is more preferred). You are given two simple PE files as well:</span><br>
+<span>task1.exe (it was found that this binary is dynamically linked to the debug version of Microsoft Visual C++ redistributable 2015. You can put this package together with Visual Studio installation, or add dll file that is inside the zip archive)</span><br>
+<span>task2.exe - Your task is to crack the program and find the correct password.</span></p>
+<p><span>My st number is </span><strong><span>12</span></strong><span> so I have to work with bin 1-6.</span></p>
+</div><p><strong><span>bin1</span></strong></p><p><span>So let’s start with the first binary. Figure 10 shows its main function.</span></p><center>
+<p><img src="https://i.imgur.com/bzjbERU.png" alt="" loading="lazy"><br>
+<span>Figure 10 - main function (bin1)</span></p>
+</center><p><span>The first part is the prologue. Then we have a line </span><strong><span>mov rax, fs:28h</span></strong><span>, which is used for safety purposes. That is why at the end we have a part after nop instruction. This is a canary for buffer overflow. If the value of the canary was changed during execution it will call the </span><strong><span>stack_chk_fail</span></strong><span>. This feature is implemented by the compiler.</span></p><p><span>Then time function is called with argument 0x00 (NULL). The returned value (</span><strong><span>rax</span></strong><span>) is saved in </span><strong><span>rdi</span></strong><span> - arg for </span><strong><span>localtime</span></strong><span>. Then the function internally stores part of the returned value in registers </span><strong><span>esi, r8d, edi, ecx, edx, eax</span></strong><span> (call-clobbered). Because the </span><strong><span>printf</span></strong><span> contains 6 args it used stack for storing the variable (string for format). Then it calls the </span><strong><span>printf</span></strong><span> function. Then there is a check for buffer overflow and epilogue.</span></p><p><span>Here we have two library functions - </span><strong><span>time and localtime</span></strong><span>.</span><br>
+<span>But there are some errors in the code:</span></p><ol>
+<li><span>In the tm structure in C, the year is the number of years that have passed since 1900. So, to get the current year, we need +1900 to the value.</span></li>
+<li><span>There is an error in hours, instead, it returns the number of days since Sunday(0-6).</span></li>
+<li><span>The month started with 0, so we need +1 for the value.</span></li>
+</ol><p><span>If we need to save these errors in the code, it will look like this as shown in Figure 11.</span></p><center>
+<p><img src="https://i.imgur.com/q8TBKN7.png" alt="" loading="lazy"><br>
+<span>Figure 11 - Bin1 with errors</span></p>
+</center><p><span>But let’s get rid of them and do it right, as shown in Figure 12.</span></p><center>
+<p><img src="https://i.imgur.com/HHPU8Qz.png" alt="" loading="lazy"><br>
+<span>Figure 12 - Fixed bin1</span></p>
+</center><p><span>The difference is shown in Figure 13.</span></p><center>
+<p><img src="https://i.imgur.com/0wGNe4a.png" alt="" loading="lazy"><br>
+<span>Figure 13 - Difference</span></p>
+</center><p><span>So if I will compile the bun1 it should be the same as bin1. I compile it using the command </span><code>gcc bun1.c -fstack-protector-all -o bun1</code><span>. Figure 14 shows the decompiled code for both files in Ghidra.</span></p><center>
+<p><img src="https://i.imgur.com/qNUIQSU.png" alt="" loading="lazy"><br>
+<span>Figure 14 - Binary File Comparison</span></p>
+</center><hr><p><strong><span>bin2</span></strong></p><p><span>Figure 15 shows the disassembled code for bin2.</span></p><center>
+<p><img src="https://i.imgur.com/XwD3LM3.png" alt="" loading="lazy"><br>
+<span>Figure 15 - Disassembled code for bin2</span></p>
+</center><p><span>Prologue, canary, then we storer 0 at the stack offset </span><strong><span>[rbp+var_64]</span></strong><span>. Then it uses the jmp command to </span><strong><span>0x6dd</span></strong><span> address. It compare the value in memory with 0x13 (19). If it less than than 19 it will jump to the </span><strong><span>0x6ca</span></strong><span> address. Then it will increase </span><strong><span>[rbp+var_64]</span></strong><span> value by one and save multiplication of </span><strong><span>[rbp+var_64]</span></strong><span> * 2 (</span><strong><span>[rax+rax]</span></strong><span>) as </span><strong><span>[rbp+rax*4+var_60]</span></strong><span>. When the value = 19 it will start the same loop (0x70f). Until 19 it will print </span><code>a[number([rbp+var_64])]=a*2 ([rbp+rax*4+var_60])</code><span>. After that, It will end the loop and check the canary, epilogue.</span></p><p><span>Figure 16 shows the code for bin2.</span></p><center>
+<p><img src="https://i.imgur.com/LNVGSP8.png" alt="" loading="lazy"><br>
+<span>Figure 16 - Code for bin2</span></p>
+</center><p><span>Figure 17 shows a comparison of my binary file (bun2) with the original one.</span></p><center>
+<p><img src="https://i.imgur.com/gpoRSFy.png" alt="" loading="lazy"><br>
+<span>Figure 17 - Comparison of bun2 with bin2.</span></p>
+</center><hr><p><strong><span>bin3</span></strong></p><p><span>I think bin3 is the same as bin2, to prove it, I use different tools, as shown in Figure 18.</span></p><center>
+<p><img src="https://i.imgur.com/AR7Ilaq.png" alt="" loading="lazy"><br>
+<span>Figure 18 - Proving that bin2 and bin 3 are the same thing</span></p>
+</center><p><span>Here I am comparing the hexadecimal code of binary files using the </span><strong><span>xxd and diff</span></strong><span> tool, but it does not return anything, which means they are the same. Also, I compare the binaries using the </span><strong><span>cmp</span></strong><span> tool with the same result. I tried </span><strong><span>diffoscope</span></strong><span>, but it also showed that they are the same.</span></p><p><strong><span>bin4</span></strong></p><p><span>Figure 19 shows the decompiled code from IDA.</span></p><center>
+<p><img src="https://i.imgur.com/Iojg9e9.png" alt="" loading="lazy"><br>
+<span>Figure 19 - Decompiled code</span></p>
+</center><p><span>It contains a prologue, a canary. Then it prints the string "Enter the integer: ". It took integer (%d) from user input and store it at offset </span><strong><span>[rbp+var_C]</span></strong><span>. Then it performs logical multiplication (AND) with this value and 1. This is equal to mod 2 operation. Result then saved to </span><strong><span>eax</span></strong><span> and compared again but this time with itself (</span><strong><span>test</span></strong><span> command). Then it simply runs the needed </span><strong><span>printf</span></strong><span> function and then checks the canary.</span></p><p><span>Figure 20 shows the C code.</span></p><center>
+<p><img src="https://i.imgur.com/wOagaZ1.png" alt="" loading="lazy"><br>
+<span>Figure 20 - C code</span></p>
+</center><p><span>Figure 21 shows a comparison between bun4 and bin4.</span></p><center>
+<p><img src="https://i.imgur.com/4zuk2U2.png" alt="" loading="lazy"><br>
+<span>Figure 21 - Comparison between bun4 and bin4</span></p>
+</center><p><strong><span>bin5</span></strong></p><p><span>The fifth binary has been stripped so it’s a bit complicated. To find the main function, I found the address of the entry point in the ELF header of the program. This leads to the </span><strong><span>__libc_start_main</span></strong><span> function, which takes the main function as an argument (Figure 22).</span></p><center>
+<p><img src="https://i.imgur.com/hjdwraX.png" alt="" loading="lazy"><br>
+<span>Figure 22 - __libc_start_main function</span></p>
+</center><p><span>Here it is FUN_0010071a. Figure 23 shows the decompiled main function.</span></p><center>
+<p><img src="https://i.imgur.com/8EgeaPR.png" alt="" loading="lazy"><br>
+<span>Figure 23 - Decompiled main function</span></p>
+</center><p><span>It has the same beginner as bin4. test instruction will set SF flag to 1 if eax is negative which leads to printf(“Error!”) command and canary check. Otherwise, it will set 1 at offset [rbp+var_14]. then it will be compared with the value at [rbp+var_18]. if it is less or equal it will multiply (imul command) these values and then increase [rbp+var_14] by 1. After [rbp+var_14] is bigger than [rbp+var_18] it will print the result and check the canary.</span></p><p><span>Figure 24 shows the C code.</span></p><center>
+<p><img src="https://i.imgur.com/ud1Iyp8.png" alt="" loading="lazy"><br>
+<span>Figure 24 - C code</span></p>
+</center><p><span>To get the stripped file I used the command </span><code>gcc bun5.c -fstack-protector-all -s -o bun5_strip</code><span>.</span></p><p><span>Figure 25 shows a comparison between bun5 and bin5.</span></p><center>
+<p><img src="https://i.imgur.com/CIMZsuL.png" alt="" loading="lazy"><br>
+<span>Figure 25 - Comparison between bun5 and bin5</span></p>
+</center><p><strong><span>bin6</span></strong></p><p><span>This has become even more difficult. It is not only stripped, but also statically linked, which makes it difficult to work with it. I found the main function the same way as for the previous binary - FUN_00400b6d. Figure 26 shows the decompiled code.</span></p><center>
+<p><img src="https://i.imgur.com/8ydxgOk.png" alt="" loading="lazy"><br>
+<span>Figure 26 - Decompiled code</span></p>
+</center><p><span>It is more difficult to analyze the entire binary file here, so to simplify the process, I used a signature database to recognize standard library functions (IDA FLIRT technology). But before I analyze the binary file, I need to find information about the operating system and compiler (Figure 27).</span></p><center>
+<p><img src="https://i.imgur.com/iQzd1DH.png" alt="" loading="lazy"><br>
+<span>Figure 27 - Info about binary</span></p>
+</center><p><span>Then I downloaded signatures [5] and ran the script through the Script Manager menu (Figure 28).</span></p><center>
+<p><img src="https://i.imgur.com/SLBICXF.png" alt="" loading="lazy"><br>
+<span>Figure 28 - 674 signatures were applied</span></p>
+</center><p><span>So, now the code has become more understandable (Figure 29).</span></p><center>
+<p><img src="https://i.imgur.com/YaVlymL.png" alt="" loading="lazy"><br>
+<span>Figure 29 - Decompiled code</span></p>
+</center><p><span>FUN_0040f6e0 is printf function. FUN_0040f860 is scanf function. It is almost the same as the 5th binary, but it does not contain checking for negative numbers. After the user type two numbers (it will consider it as integer %d). Then it summarizes them using the command ADD EAX, EDX. And print the result.</span></p><p><span>Figure 30 shows the C code.</span></p><center>
+<p><img src="https://i.imgur.com/Zov3YUn.png" alt="" loading="lazy"><br>
+<span>Figure 30 - C code</span></p>
+</center><p><span>To compile it I used the command </span><code>gcc bun6.c -fstack-protector-all -s -static -o bun6</code><span>.</span></p><p><span>About the task files. This is not part of my task, but I was curious to find out about it. The first one is very simple, it already contains the necessary data in the main function, where it is used for comparison with user input (Figure 31).</span></p><center>
+<p><img src="https://i.imgur.com/BMN1AYO.png" alt="" loading="lazy"><br>
+<span>Figure 31 - task1.exe</span></p>
+</center><p><span>task2 is more interesting. It took the value from the user input and saved it as </span><strong><span>_DAT_0040437c</span></strong><span>. Then its value is compared with eax=DAT_0040318+0x19f97f=0x247679. In Ghidra I see that it only accepts int value from user input. Thus, the password is a number = 0x247679 = 2389625 (Figure 32).</span></p><center>
+<p><img src="https://i.imgur.com/4uPQpzf.png" alt="" loading="lazy"><br>
+<span>Figure 32 - task2.exe</span></p>
+</center><hr><h2 id="Bonus" data-id="Bonus"><a class="anchor hidden-xs" href="#Bonus" title="Bonus"><span class="octicon octicon-link"></span></a><span>Bonus</span></h2><p><span>Portable Executable (PE) is an executable format for Windows OS. Figure 33 shows the structure of the PE file.</span></p><center>
+<p><img src="https://i.imgur.com/JEy9Miu.png" alt="" loading="lazy"><br>
+<span>Figure 33 - PE file structure</span></p>
+</center><p><span>ELF (Executable and Linkable Format) defines the structure of binary files, libraries, and core files for Linux. Figure 34 shows the structure of ELF.</span></p><center>
+<p><img src="https://i.imgur.com/XFb4oTk.png" alt="" loading="lazy"><br>
+<span>Figure 34 - ELF structure</span></p>
+</center><p><span>Let’s see the difference between PE and ELF using the code in Figure 35.</span></p><center>
+<p><img src="https://i.imgur.com/7fkbriQ.png" alt="" loading="lazy"><br>
+<span>Figure 35 - Hello world</span></p>
+</center><p><span>I install the extension to compile the program for Windows using the command </span><code>sudo apt-get install mingw-w64</code><span>. to be able to analyze the Pe file I install pev - </span><code>sudo apt install pev</code><span>.</span></p><p><span>The first structure of the PE file is DOS Header. It has a size of 64 bytes and it has the following structure as shown in Figure 36.</span></p><center>
+<p><img src="https://i.imgur.com/WPbaavx.png" alt="" loading="lazy"><br>
+<span>Figure 36 - DOS header</span></p>
+</center><p><span>Then there is a DOS stub - an error message saying “This program cannot be run in DOS mode”. it prints when the program is run in DOS mode.</span></p><p><span>Then, NT Headers. It contains three main parts:</span><br>
+<span>PE signature - A 4-byte signature that identifies the file as a PE file.</span><br>
+<span>File Header -  holds some information about the PE file (Figure 37).</span><br>
+<span>Optional Header - The most important header of the NT Headers, its name is the Optional Header because some files like object files don’t have it, however, it’s required for image files (files like .exe files). This header provides important information to the OS loader (Figure 38).</span></p><center>
+<p><img src="https://i.imgur.com/XbsFzsE.png" alt="" loading="lazy"><br>
+<span>Figure 37 - File header</span></p>
+<p><img src="https://i.imgur.com/sVvDj1t.png" alt="" loading="lazy"><br>
+<span>Figure 38 - Optional header</span></p>
+</center><p><span>Headers provide similar information as ELF Header (Figure 39). But PE provides more detailed information about files and environment 9versions, stac, etc.).</span></p><center>
+<p><img src="https://i.imgur.com/f0jhhU8.png" alt="" loading="lazy"><br>
+<span>Figure 39 - ELF Header</span></p>
+</center><p><span>The section table follows the Optional Header, it is an array of Image Section Headers, there’s a section header for every section in the PE file. Each header contains information about the section (Figure 40).</span></p><center>
+<p><img src="https://i.imgur.com/EGN1dOW.png" alt="" loading="lazy"><br>
+<span>Figure 40 - part of section table (PE)</span></p>
+</center><p><span>This structure is similar to the Section table in the ELF file (Figure 41).</span></p><center>
+<p><img src="https://i.imgur.com/H1oM0De.png" alt="" loading="lazy"><br>
+<span>Figure 41 - Section table (ELF)</span></p>
+</center><p><span>Sections are where the contents of the file are stored (data, resources, code of the program).</span></p><p><span>PE format has only sections, the ELF executable has both sections and segments. ELF segment is more like a section in PE.</span></p><hr><h2 id="References" data-id="References"><a class="anchor hidden-xs" href="#References" title="References"><span class="octicon octicon-link"></span></a><span>References</span></h2><ol>
+<li><a href="https://interrupt.memfault.com/blog/cortex-m-breakpoints" target="_blank" rel="noopener"><span>How do breakpoints even work?</span></a></li>
+<li><a href="https://www.agner.org/optimize/calling_conventions.pdf" target="_blank" rel="noopener"><span>Calling conventions</span></a></li>
+<li><a href="https://www.cs.uaf.edu/2016/fall/cs301/lecture/09_09_stack.html" target="_blank" rel="noopener"><span>The Stack: Push and Pop</span></a></li>
+<li><a href="https://github.com/NWMonster/ApplySig" target="_blank" rel="noopener"><span>Script to use FLIRT for Ghidra</span></a></li>
+<li><a href="https://github.com/push0ebp/sig-database" target="_blank" rel="noopener"><span>signatures database</span></a></li>
+<li><a href="https://github.com/anthraxx/diffoscope" target="_blank" rel="noopener"><span>diffoscope</span></a></li>
+<li><a href="https://systemoverlord.com/2017/03/19/got-and-plt-for-pwning.html" target="_blank" rel="noopener"><span>GOT and PLT</span></a></li>
+<li><a href="https://mcuoneclipse.com/2019/09/28/stack-canaries-with-gcc-checking-for-stack-overflow-at-runtime/" target="_blank" rel="noopener"><span>Stack Canaries with GCC</span></a></li>
+<li><a href="https://resources.infosecinstitute.com/topic/reversing-loops/" target="_blank" rel="noopener"><span>Reversing Loops</span></a></li>
+</ol></div>
+    <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
+        <div class="pull-right dropdown">
+            <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
+                <i class="fa fa-bars"></i>
+            </a>
+            <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
+                <div class="toc"><ul class="nav">
+<li class=""><a href="#Part-1---Understanding-Assembly" title="Part 1 - Understanding Assembly">Part 1 - Understanding Assembly</a><ul class="nav">
+<li class=""><a href="#Task-1---Theory" title="Task 1 - Theory">Task 1 - Theory</a></li>
+<li class=""><a href="#Task-2---Disassembly" title="Task 2 - Disassembly">Task 2 - Disassembly</a></li>
+</ul>
+</li>
+<li><a href="#Part-2---Reverse-engineering" title="Part 2 - Reverse engineering">Part 2 - Reverse engineering</a><ul class="nav">
+<li><a href="#Task-1---Theory1" title="Task 1 - Theory">Task 1 - Theory</a></li>
+<li><a href="#Task-2---Reverse-amp-Cracking" title="Task 2 - Reverse &amp; Cracking">Task 2 - Reverse &amp; Cracking</a></li>
+<li><a href="#Bonus" title="Bonus">Bonus</a></li>
+<li><a href="#References" title="References">References</a></li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
+            </ul>
+        </div>
+    </div>
+    <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;" null null>
+        <div class="toc"><ul class="nav">
+<li class=""><a href="#Part-1---Understanding-Assembly" title="Part 1 - Understanding Assembly">Part 1 - Understanding Assembly</a><ul class="nav">
+<li class=""><a href="#Task-1---Theory" title="Task 1 - Theory">Task 1 - Theory</a></li>
+<li class=""><a href="#Task-2---Disassembly" title="Task 2 - Disassembly">Task 2 - Disassembly</a></li>
+</ul>
+</li>
+<li><a href="#Part-2---Reverse-engineering" title="Part 2 - Reverse engineering">Part 2 - Reverse engineering</a><ul class="nav">
+<li><a href="#Task-1---Theory1" title="Task 1 - Theory">Task 1 - Theory</a></li>
+<li><a href="#Task-2---Reverse-amp-Cracking" title="Task 2 - Reverse &amp; Cracking">Task 2 - Reverse &amp; Cracking</a></li>
+<li><a href="#Bonus" title="Bonus">Bonus</a></li>
+<li><a href="#References" title="References">References</a></li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.6.0/gist-embed.min.js" integrity="sha256-KyF2D6xPIJUW5sUDSs93vWyZm+1RzIpKCexxElmxl8g=" crossorigin="anonymous" defer></script>
+    <script>
+        var markdown = $(".markdown-body");
+        //smooth all hash trigger scrolling
+        function smoothHashScroll() {
+            var hashElements = $("a[href^='#']").toArray();
+            for (var i = 0; i < hashElements.length; i++) {
+                var element = hashElements[i];
+                var $element = $(element);
+                var hash = element.hash;
+                if (hash) {
+                    $element.on('click', function (e) {
+                        // store hash
+                        var hash = this.hash;
+                        if ($(hash).length <= 0) return;
+                        // prevent default anchor click behavior
+                        e.preventDefault();
+                        // animate
+                        $('body, html').stop(true, true).animate({
+                            scrollTop: $(hash).offset().top
+                        }, 100, "linear", function () {
+                            // when done, add hash to url
+                            // (default click behaviour)
+                            window.location.hash = hash;
+                        });
+                    });
+                }
+            }
+        }
+
+        smoothHashScroll();
+        var toc = $('.ui-toc');
+        var tocAffix = $('.ui-affix-toc');
+        var tocDropdown = $('.ui-toc-dropdown');
+        //toc
+        tocDropdown.click(function (e) {
+            e.stopPropagation();
+        });
+
+        var enoughForAffixToc = true;
+
+        function generateScrollspy() {
+            $(document.body).scrollspy({
+                target: ''
+            });
+            $(document.body).scrollspy('refresh');
+            if (enoughForAffixToc) {
+                toc.hide();
+                tocAffix.show();
+            } else {
+                tocAffix.hide();
+                toc.show();
+            }
+            $(document.body).scroll();
+        }
+
+        function windowResize() {
+            //toc right
+            var paddingRight = parseFloat(markdown.css('padding-right'));
+            var right = ($(window).width() - (markdown.offset().left + markdown.outerWidth() - paddingRight));
+            toc.css('right', right + 'px');
+            //affix toc left
+            var newbool;
+            var rightMargin = (markdown.parent().outerWidth() - markdown.outerWidth()) / 2;
+            //for ipad or wider device
+            if (rightMargin >= 133) {
+                newbool = true;
+                var affixLeftMargin = (tocAffix.outerWidth() - tocAffix.width()) / 2;
+                var left = markdown.offset().left + markdown.outerWidth() - affixLeftMargin;
+                tocAffix.css('left', left + 'px');
+            } else {
+                newbool = false;
+            }
+            if (newbool != enoughForAffixToc) {
+                enoughForAffixToc = newbool;
+                generateScrollspy();
+            }
+        }
+        $(window).resize(function () {
+            windowResize();
+        });
+        $(document).ready(function () {
+            windowResize();
+            generateScrollspy();
+        });
+
+        //remove hash
+        function removeHash() {
+            window.location.hash = '';
+        }
+
+        var backtotop = $('.back-to-top');
+        var gotobottom = $('.go-to-bottom');
+
+        backtotop.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToTop)
+                scrollToTop();
+            removeHash();
+        });
+        gotobottom.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToBottom)
+                scrollToBottom();
+            removeHash();
+        });
+
+        var toggle = $('.expand-toggle');
+        var tocExpand = false;
+
+        checkExpandToggle();
+        toggle.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            tocExpand = !tocExpand;
+            checkExpandToggle();
+        })
+
+        function checkExpandToggle () {
+            var toc = $('.ui-toc-dropdown .toc');
+            var toggle = $('.expand-toggle');
+            if (!tocExpand) {
+                toc.removeClass('expand');
+                toggle.text('Expand all');
+            } else {
+                toc.addClass('expand');
+                toggle.text('Collapse all');
+            }
+        }
+
+        function scrollToTop() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: 0
+            }, 100, "linear");
+        }
+
+        function scrollToBottom() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: $(document.body)[0].scrollHeight
+            }, 100, "linear");
+        }
+    </script>
+</body>
+
+</html>
